@@ -32,6 +32,12 @@ void print_i32(int input) {
 }
 
 void print_f32(float input) {
+    int is_neg = 0;
+    if (input < 0){
+        input += input*-2;
+        is_neg = 1;
+    }   
+
     int num = (int)input;
     int dec_num = (int)((input - num) * 1000000);
     while(dec_num % 10 + '0' == '0') dec_num /= 10;
@@ -59,6 +65,12 @@ void print_f32(float input) {
         buffer_sz++;
         num = num / 10;
     } while(num);
+
+    // If 'input' is negative, add a '-' before the place where the elements starts
+    if(is_neg) {
+        buffer[sizeof(buffer) - buffer_sz - 1] = '-';\
+        buffer_sz++;
+    }
 
     // Linux syscall 
     // '&buffer[sizeof(buffer) - buffer_sz]', returns pointer of begining of chacacters in array.
