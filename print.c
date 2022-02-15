@@ -38,6 +38,7 @@ void print_f32(float input) {
         is_neg = 1;
     }   
 
+    // Splits input into two parts, before and after the '.'
     int num = (int)input;
     int dec_num = (int)((input - num) * 1000000);
     while(dec_num % 10 + '0' == '0') dec_num /= 10;
