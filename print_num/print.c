@@ -1,5 +1,4 @@
-#include "print.h"
-#include <unistd.h>
+#include <unistd.h> // Only lib allowed
 
 void print_i32(int input) {
     int is_neg = 0;
